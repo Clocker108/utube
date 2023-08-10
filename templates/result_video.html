@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>UTube - Result</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            form {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            form > input {
+                width: 70%;
+                height: 30px;
+                border: 0;
+                border-radius: 30px;
+                outline: none;
+                padding: 10px 15px;
+                font-size: 16px;
+                background-color: rgb(233, 233, 233);
+            }
+            form > button {
+                width: 100px;
+                height: 50px;
+                margin-left: 10px;
+                border: 0;
+                border-radius: 30px;
+                outline: none;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .container > div {
+                padding: 5px;
+                background-color: gainsboro;
+                border: solid 4px white;
+                overflow: hidden;
+                width: 300px;
+                height: auto;
+                border-radius: 5%;
+                cursor: pointer;
+            }
+            h3 {
+                font-size: 18px;
+                margin: 4px;
+            }
+            h4 {
+                font-size: 15px;
+                margin: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="post" action="/result_video">
+            <input type="text" required name="query" value="{{ query }}">
+            <button type="submit">Search</button>
+        </form>
+        <div class="container">
+            {% for i in range(n) %}
+                <div onclick="window.open('https://youtube.com/watch?v={{ videoId[i] }}')">
+                    <img style="object-fit: contain; width: 100%; margin-bottom: 3px; border-radius: 5%;" src="https://i.ytimg.com/vi/{{ videoId[i] }}/maxresdefault.jpg" alt="{{ title[i] }}">
+                    <h3>{{ title[i] }}</h4>
+                    <h3>{{ channel[i] }}</h5>
+                    <h4><strong>Uploaded {{ date[i] }}</strong></h6>
+                    <h4><strong>{{ view[i] }}</strong></h6>
+                </div>
+            {% endfor %}
+        </div>
+        <button onclick="window.open('https://www.youtube.com/results?search_query={{ query }}')">Search more on Youtube</button>
+    </body>
+</html>
