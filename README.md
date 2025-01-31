@@ -4,6 +4,8 @@
 
 ### Lightweight python, flask based Open-Source. UTube allows **searching youtube videos** without using youtube's official API, and using unofficial API, InnerTube.
 
+# Currently remaking utube for actual working video player with comments and channel tabs.
+
 #### Features
 - Search videos on youtube
 - Go directly to youtube video that you searched
